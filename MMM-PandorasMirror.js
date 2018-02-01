@@ -1,22 +1,43 @@
 Module.register('MMM-PandorasMirror',{
+    voice: {
+        mode: 'PANDORA',
+        sentences: [
+            'PLAY PANDORA',
+            'PAUSE PANDORA'
+        ]
+    },
+
     start: function() {
         this.currentSong = "N/A";
         var self = this;
         self.getCurrentSong();
         setInterval(function() {
-            self.cmdPandora();
-        },30000);
-        setInterval(function() {
             self.getCurrentSong();
         },10000);
     },
 
-    cmdPandora: function() {
-        this.sendSocketNotification("CMD_PANDORA",{msg: 'p'});
+    cmdPandora: function(message) {
+        this.sendSocketNotification("CMD_PANDORA",{msg: message});
     },
 
     getCurrentSong: function() {
         this.sendSocketNotification("GET_CUR_SONG",{});
+    },
+
+    notificationReceived(notification, payload, sender) {
+        if (notification === 'ALL_MODULES_STARTED') {
+            this.sendNotification('REGISTER_VOICE_MODULE', this.voice);
+        } else if (notification === 'VOICE_PANDORA' && sender.name === 'MMM-voice'){
+            this.checkCommands(payload);
+        }
+    },
+
+    checkCommands(data) {
+        if(/(PANDORA)/g.test(data)) {
+            if((/(PLAY)/g.test(data)) || (/(PAUSE)/g.test(data))) {
+                this.cmdPandora('p');
+            }
+        }
     },
 
     socketNotificationReceived: function(notification, payload) {
@@ -32,6 +53,7 @@ Module.register('MMM-PandorasMirror',{
         song.className = "thin xlarge bright";
         song.innerHTML = this.currentSong;
         //wrapper.className = "thin xlarge bright";
+        wrapper.appendChild(song);
         wrapper.appendChild(song);
         return wrapper;
     }
