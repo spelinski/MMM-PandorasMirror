@@ -18,6 +18,13 @@ An example config has also been provied under the pianobar folder and assumes pi
 
 This project also currently assumes pianobar is already running
 
+### Voice control
+* mode for voice module is Pandora
+* Supported Commands:
+** Play Pandora
+** Pause Pandora
+** Next Song
+
 ### This project
 clone this repo into MagicMirror/modules.
 

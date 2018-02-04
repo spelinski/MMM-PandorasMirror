@@ -18,7 +18,7 @@ module.exports = NodeHelper.create({
             var song = fs.readFileSync("/home/pi/.config/pianobar/currentSong").toString();
             if (song) {
                 var songArray = song.split(',,,');
-                var songToSend = "Title: " + songArray[1] + "<br>album: " + songArray[2] + "<br>artist: " + songArray[0];
+                var songToSend = "Title: " + songArray[1] + "<br>Album: " + songArray[2] + "<br>Artist: " + songArray[0];
                 self.sendSocketNotification("SONG", {currentSong: songToSend});
             }
         } else if(notification === "GET_STATION_LIST") {
