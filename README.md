@@ -1,14 +1,16 @@
-#WIP (Work In Progress)
-##Pandora Module for Magic Mirror
+# WIP (Work In Progress)
+
+## Pandora Module for Magic Mirror
+
 <Insert Screen Shot here>
 
 
-###Requirements:
+### Requirements:
 * [Magic Mirror](https://github.com/MichMich/MagicMirror)
 * [MMM-Voice](https://github.com/fewieden/MMM-voice)
 * Pianobar
 
-###Pianobar specifics
+### Pianobar specifics
 This project currently assumes pianobar is setup for FIFO control and to run the eventcmd.sh script provided under the pianobar folder
 *example for creating a fifo "mkfifo /home/pi/.config/pianobar/ctl"
 
@@ -16,7 +18,7 @@ An example config has also been provied under the pianobar folder and assumes pi
 
 This project also currently assumes pianobar is already running
 
-###This project
+### This project
 clone this repo into MagicMirror/modules.
 
 Example config
