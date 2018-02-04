@@ -2,7 +2,7 @@
 
 ## Pandora Module for Magic Mirror
 
-<Insert Screen Shot here>
+![alt text](https://github.com/spelinski/MMM-PandorasMirror/blob/master/images/example.png)
 
 
 ### Requirements:
