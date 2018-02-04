@@ -7,7 +7,6 @@ module.exports = NodeHelper.create({
     },
     socketNotificationReceived: function(notification, payload) {
         var self = this;
-        console.log("Notification: " + notification + " Payload: " + payload);
         if(notification === "CMD_PANDORA") {
             fs.appendFile('/home/pi/.config/pianobar/ctl', payload.msg, function(err){
                 if(err){
