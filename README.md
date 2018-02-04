@@ -2,6 +2,8 @@
 
 ## Pandora Module for Magic Mirror
 
+Module for controlling the Pandora music service
+
 ![alt text](https://github.com/spelinski/MMM-PandorasMirror/blob/master/images/example.png)
 
 
@@ -9,6 +11,7 @@
 * [Magic Mirror](https://github.com/MichMich/MagicMirror)
 * [MMM-Voice](https://github.com/fewieden/MMM-voice)
 * Pianobar
+* [Pandora account](https://www.pandora.com/)
 
 ### Pianobar specifics
 This project currently assumes pianobar is setup for FIFO control and to run the eventcmd.sh script provided under the pianobar folder
