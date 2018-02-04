@@ -1,0 +1,29 @@
+user = <Your username>
+password = <Your password>
+
+ 
+# Keybindings
+act_help = ?
+act_songlove = +
+act_songban = -
+act_stationaddmusic = a
+act_stationcreate = c
+act_stationdelete = d
+act_songexplain = e
+act_stationaddbygenre = g
+act_songinfo = i
+act_addshared = j
+act_songmove = m
+act_songnext = n
+act_songpause = p
+act_quit = q
+act_stationrename = r
+act_stationchange = s
+act_songtired = t
+act_upcoming = u
+act_stationselectquickmix = x
+act_voldown = (
+act_volup = )
+
+fifo = /home/pi/.config/pianobar/ctl
+event_command = /home/pi/.config/pianobar/eventcmd.sh
