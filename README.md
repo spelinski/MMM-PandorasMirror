@@ -24,9 +24,9 @@ This project also currently assumes pianobar is already running
 ### Voice control
 * mode for voice module is Pandora
 * Supported Commands:
-.* Play Pandora
-.* Pause Pandora
-.* Next Song
+    * Play Pandora
+    * Pause Pandora
+    * Next Song
 
 ### This project
 
