@@ -13,8 +13,7 @@ module.exports = NodeHelper.create({
                     console.log("Error seen: " + err);
                 }
             });
-        }
-        else if(notification === "GET_CUR_SONG") {
+        } else if(notification === "GET_CUR_SONG") {
             var song = fs.readFileSync("/home/pi/.config/pianobar/currentSong").toString();
             if (song) {
                 var songArray = song.split(',,,');
