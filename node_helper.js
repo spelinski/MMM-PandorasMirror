@@ -8,13 +8,8 @@ module.exports = NodeHelper.create({
     socketNotificationReceived: function(notification, payload) {
         var self = this;
         if(notification === "CMD_PANDORA") {
-            fs.appendFile('/home/pi/.config/pianobar/ctl', payload.msg, function(err){
-                if(err){
-                    console.log("Error seen: " + err);
-                }
-            });
-        }
-        else if(notification === "GET_CUR_SONG") {
+            fs.appendFileSync('/home/pi/.config/pianobar/ctl', payload.msg);
+        } else if(notification === "GET_CUR_SONG") {
             var song = fs.readFileSync("/home/pi/.config/pianobar/currentSong").toString();
             if (song) {
                 var songArray = song.split(',,,');
