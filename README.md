@@ -1,5 +1,3 @@
-# WIP (Work In Progress)
-
 ## Pandora Module for Magic Mirror
 
 Module for controlling the Pandora music service
