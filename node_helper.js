@@ -32,6 +32,12 @@ module.exports = NodeHelper.create({
         } else if(notification === "GET_STATION_LIST") {
             var stationList = fs.readFileSync("/home/pi/.config/pianobar/stationList").toString();
             self.sendSocketNotification("STATIONS", {allStations: stationList});
+        } else if(notification === "GET_CUR_STATION_NAME") {
+            var stationName = fs.readFileSync("/home/pi/.config/pianobar/currentStation").toString();
+            self.sendSocketNotification("STATION_NAME", {currentStationName: stationName});
+        } else if(notification === "GET_MAX_STATION") {
+            var stationCount = fs.readFileSync("/home/pi/.config/pianobar/maxStation").toString();
+            self.sendSocketNotification("MAX_STATION", {maxStation: stationCount});
         }
     },
 });

@@ -27,6 +27,14 @@ This project assumes pianobar can be started without any input (For testing if y
     * Play Pandora
     * Pause Pandora
     * Next Song
+    * Show Stations
+    * Hide Stations
+    * Change Stations
+
+### Change Stations Limitations
+
+Currently this changes sequentially by one from station 0 through the max and loops back around if changing from the max station.  
+This is workable with a small station count but is unwieldy at larger number of stations.
 
 ### This project
 

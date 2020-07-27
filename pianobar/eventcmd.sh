@@ -1,6 +1,8 @@
 #!/bin/bash
 stationList="${HOME}/.config/pianobar/stationList"
 currentSong="${HOME}/.config/pianobar/currentSong"
+currentStation="${HOME}/.config/pianobar/currentStation"
+maxStation="${HOME}/.config/pianobar/maxStation"
 
 while read L; do
 	k="`echo "$L" | cut -d '=' -f 1`"
@@ -35,6 +37,15 @@ stationList () {
 		eval sn=\$$sn
 		echo "${i}:${sn}" >> "$stationList"
 	done
+
+        echo "$end" > "$maxStation"
+}
+
+currentStation () {
+        if [ -f "$currentStation" ]; then
+                rm "$currentStation"
+        fi
+        echo "$stationName" > "$currentStation"
 }
 
 
@@ -46,6 +57,8 @@ case "$1" in
 		echo -n "${artist},,,${title},,,${album},,,${coverArt},,,${rating}" > "$currentSong"
 
 		stationList
+
+                currentStation
 		;;
 
 #	songfinish)

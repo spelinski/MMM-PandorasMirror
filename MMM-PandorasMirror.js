@@ -15,12 +15,18 @@ Module.register('MMM-PandorasMirror',{
         this.currentSong = "N/A";
         this.showStations = false;
         this.stations = "N/A";
-        //ASSUMPTION needs changed
+        this.currentStationName = "N/A";
         this.currentStation = 0;
+        this.maxStation = 0;
         var self = this;
+        self.getMaxStation();
         self.getCurrentSong();
         setInterval(function() {
             self.getCurrentSong();
+        },10000);
+        self.getCurrentStationName();
+        setInterval(function() {
+            self.getCurrentStationName();
         },10000);
     },
 
@@ -30,6 +36,14 @@ Module.register('MMM-PandorasMirror',{
 
     getCurrentSong: function() {
         this.sendSocketNotification("GET_CUR_SONG",{});
+    },
+
+    getCurrentStationName: function() {
+        this.sendSocketNotification("GET_CUR_STATION_NAME",{});
+    },
+
+    getMaxStation: function() {
+        this.sendSocketNotification("GET_MAX_STATION",{});
     },
 
     notificationReceived(notification, payload, sender) {
@@ -56,6 +70,9 @@ Module.register('MMM-PandorasMirror',{
                 this.updateDom(1000);
             } else if (/(CHANGE)/g.test(data)) {
                 this.currentStation++;
+                if(this.currentStation > this.maxStation) {
+                    this.currentStation = 0;
+                }
                 this.cmdPandora('s');
                 this.cmdPandora(this.currentStation.toString());
                 this.cmdPandora('\r\n');
@@ -70,15 +87,25 @@ Module.register('MMM-PandorasMirror',{
         } else if (notification == "STATIONS") {
             this.stations = payload.allStations;
             this.updateDom(1000);
+        } else if (notification == "STATION_NAME") {
+            this.currentStationName = payload.currentStationName;
+            this.updateDom(1000);
+        } else if (notification == "MAX_STATION") {
+            this.maxStation = parseInt(payload.maxStation, 10);
+            this.updateDom(1000);
         }
     },
 
     getDom: function() {
         var wrapper = document.createElement("div");
         var song = document.createElement("div");
+        var stationName = document.createElement("div");
         var station = document.createElement("div");
         song.className = "thin small bright";
         song.innerHTML = this.currentSong;
+        stationName.className = "thin small bright";
+        stationName.innerHTML = this.currentStationName;
+        song.appendChild(stationName);
         if(this.showStations) {
             station.className = "thin small bright";
             station.innerHTML = this.stations;
