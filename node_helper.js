@@ -1,9 +1,15 @@
 var NodeHelper = require("node_helper");
 var fs = require('fs');
+const { spawn } = require("child_process");
+var piano;
 
 module.exports = NodeHelper.create({
     start: function(){
         console.log("Starting node helper: " + this.name);
+        piano = spawn("pianobar", {detached: true});
+    },
+    stop: function(){
+        process.kill(-piano.pid);
     },
     socketNotificationReceived: function(notification, payload) {
         var self = this;

@@ -19,7 +19,7 @@ This project currently assumes pianobar is setup for FIFO control and to run the
 
 An example config has also been provied under the pianobar folder and assumes pianobar's config is under ~/.config/pianobar
 
-This project also currently assumes pianobar is already running
+This project assumes pianobar can be started without any input (For testing if you can start pianobar from the command line without user input and music starts)
 
 ### Voice control
 * mode for voice module is Pandora
