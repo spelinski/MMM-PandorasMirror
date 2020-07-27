@@ -37,3 +37,9 @@ Example config
 module: 'MMM-PandorasMirror",
 
 position: "lower_third"
+
+### Last Tested
+MagicMirror : v2.12.0
+node.js : 8.11.1
+Platform : Pi 3 Model B
+ 
