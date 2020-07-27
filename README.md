@@ -29,14 +29,13 @@ This project assumes pianobar can be started without any input (For testing if y
     * Next Song
 
 ### This project
--clone this repo into MagicMirror/modules.
 
+clone this repo into MagicMirror/modules.  
 Example config
--module: 'MMM-PandorasMirror",
--position: "lower_third"
+- module: 'MMM-PandorasMirror",
+- position: "lower_third"
 
 ### Last Tested
--MagicMirror : v2.12.0
--node.js : 8.11.1
--Platform : Pi 3 Model B
- 
+MagicMirror : v2.12.0  
+node.js : 8.11.1  
+Platform : Pi 3 Model B
