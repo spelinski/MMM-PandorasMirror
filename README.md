@@ -1,4 +1,4 @@
-## Pandora Module for Magic Mirror
+## Pandora Module for Magic Mirror (ABANDONED)
 
 Module for controlling the Pandora music service
 
